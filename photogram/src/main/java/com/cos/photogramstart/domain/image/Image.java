@@ -27,7 +27,7 @@ public class Image {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int id;
-	private String caption; // 사진 설명임
+	private String caption; // 사진 설명임 !!
 	private String profileImageUrl; // 사진을 전송받아서 그 사진을 서버에 특정 폴더에 저장 -> DB에 그 저장된 경로를 insert할 것임.
 	
 	@JoinColumn(name="userId")

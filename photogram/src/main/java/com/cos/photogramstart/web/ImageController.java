@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class ImageController {
 	
-	private final ImageService imageService; //@RequiredArgsConstructor 를 통한 DI
+	private final ImageService imageService; //@RequiredArgsConstructor 를 통한 DI.
 	
 	@GetMapping({"/","/image/story"})
 	public String story() {

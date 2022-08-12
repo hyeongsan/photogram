@@ -19,7 +19,7 @@ import com.cos.photogramstart.web.dto.auth.SignupDto;
 
 import lombok.RequiredArgsConstructor;
 
-/*컨트롤러가 되기위해선 @Controller 어노테이션이 붙어있어야함*/
+/*컨트롤러가 되기위해선 @Controller 어노테이션이 붙어있어야한다  */
 /*@Controller=>1.Ioc에 등록이 됬다는 의미이자 2. 파일을 리턴하겠다는 의미*/
 @RequiredArgsConstructor // final 필드를 DI 할 때 사용
 @Controller 

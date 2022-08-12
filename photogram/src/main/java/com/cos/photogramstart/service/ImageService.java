@@ -47,7 +47,7 @@ public class ImageService {
 																						// 이러면 앞의 경로는 모르지않느냐? ㄴㄴ yml에 적혀있으니 문제될거없음
 		Image imageEntity = imageRepository.save(image);
 		
-		System.out.println(imageEntity);
+		System.out.println(imageEntity.toString());
 				
 	}
 }

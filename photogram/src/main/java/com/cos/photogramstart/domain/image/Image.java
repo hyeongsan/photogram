@@ -32,7 +32,7 @@ public class Image {
 	
 	@JoinColumn(name="userId")
 	@ManyToOne // 이미지 n : 유저 1
-	private User user; // 한명의 유저는 여러 이미지를 등록할 수 있다. 유저1 : 이미지n (유저입장)
+	private User user; // 한명의 유저는 여러 이미지를 등록할 수 있다. 유저1 : 이미지n (유저입장 )
 					   // 하나의 이미지는 몇명의 유저가 만들어 낼 수 있는가. 이미지1 : 유저 1 (이미지입장)
 	
 	//이미지 좋아요

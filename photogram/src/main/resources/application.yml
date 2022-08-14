@@ -37,6 +37,6 @@ spring:
       password: 1234   
 
 file:
-      path: C:/Users/user/git/upload/ #윈도우 
-#   path: /Users/user/git/upload/ #맥 
+#      path: C:/Users/user/git/upload/ #윈도우 
+   path: /Users/user/git/upload/ #맥 
    

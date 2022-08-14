@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 
 import com.cos.photogramstart.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,7 @@ public class Image {
 	private String caption; // 사진 설명임 !!
 	private String profileImageUrl; // 사진을 전송받아서 그 사진을 서버에 특정 폴더에 저장 -> DB에 그 저장된 경로를 insert할 것임.
 	
+	@JsonIgnoreProperties({"images"}) 
 	@JoinColumn(name="userId")
 	@ManyToOne // 이미지 n : 유저 1
 	private User user; // 한명의 유저는 여러 이미지를 등록할 수 있다. 유저1 : 이미지n (유저입장 )

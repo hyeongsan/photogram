@@ -32,7 +32,7 @@ import lombok.NoArgsConstructor;
 				
 				)
 })
-public class likes { // N(이미지와는), N(user와는)- 한명의유저는 좋아요를 여러번가능
+public class Likes { // N(이미지와는), N(user와는)- 한명의유저는 좋아요를 여러번가능
 		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 

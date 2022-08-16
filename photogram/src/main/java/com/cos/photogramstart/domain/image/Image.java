@@ -43,7 +43,7 @@ public class Image {
 					   // 하나의 이미지는 몇명의 유저가 만들어 낼 수 있는가. 이미지1 : 유저 1 (이미지입장)
 	
 	//이미지 좋아요	
-	@JsonIgnore
+	@JsonIgnoreProperties({"image"}) 
 	@OneToMany(mappedBy="image")
 	private List<Likes> likes;	
 	
@@ -52,6 +52,9 @@ public class Image {
 	
 	@Transient // DB에 컬럼이 만들어지지 않는다.
 	private boolean likeState;
+	
+	@Transient
+	private int likeCount;
 	
 	@PrePersist //DB에 insert되기 직전에 실행
 	public void createDate() {

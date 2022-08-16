@@ -14,6 +14,7 @@ import javax.persistence.UniqueConstraint;
 
 import com.cos.photogramstart.domain.image.Image;
 import com.cos.photogramstart.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,6 +43,7 @@ public class Likes { // N(이미지와는), N(user와는)- 한명의유저는 �
 	@ManyToOne // ManyToOne은 기본페치전략이 Eager전략이다. ( likes테이블 생성시 image,user join해서 가져옴)
 	private Image image; // 어떤이미지를, 1
 	
+	@JsonIgnoreProperties({"images"})
 	@JoinColumn(name="userId") // 데이터베이스에 어떤이름으로 만들어질것인지
 	@ManyToOne
 	private User user;	 // 누가 좋아했는지 필요, 1

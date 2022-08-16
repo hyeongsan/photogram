@@ -28,6 +28,19 @@ public class ImageService {
 	@Transactional(readOnly=true) // select만할꺼니까 readOnly, 그리고 readOnly면 영속성 컨텍스트 변경감지를 해서, 더티체킹, flush(반영) X
 	public Page<Image> 이미지스토리(int principalId, Pageable pageable){
 		Page<Image> images = imageRepository.mStory(principalId,pageable);
+		
+		// 2(cos)로그인
+		// images에 좋아요 상태 담기
+		images.forEach((image)->{
+			
+			image.getLikes().forEach((like)->{
+				if(like.getUser().getId()==principalId) { // 이 두개가 같으면 좋아요를 했다는거
+					image.setLikeState(true);
+				}
+			});
+			
+		});
+		
 		return images;
 	}
 	

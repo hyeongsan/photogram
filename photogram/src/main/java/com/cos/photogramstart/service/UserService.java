@@ -47,6 +47,11 @@ public class UserService {
 		dto.setSubscribeState(subscribeState==1); // SubscribeState은 boolean 타입이라서 파라미터 이렇게
 		dto.setSubscribeCount(subscribeCount);
 		
+		//좋아요 카운트 추가하기
+		userEntity.getImages().forEach((image)->{			
+			image.setLikeCount(image.getLikes().size());
+		});
+		
 		return dto;
 	}
 	

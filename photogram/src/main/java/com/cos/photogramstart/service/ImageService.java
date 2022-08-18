@@ -64,19 +64,21 @@ public class ImageService {
 		System.out.println("이미지파일이름:"+imageFileName);
 		
 		Path imageFilePath = Paths.get(uploadFolder+imageFileName);
+		System.out.println("here?");
 		
 		// 통신 혹은 I/O 가 일어날 때 -> 예외가 발생 할 수 있다.
 		try {
 			Files.write(imageFilePath, imageUploadDto.getFile().getBytes()); //이미지가 업로드되다가 여기서 실패를 하면 익셉션 처리 해줘야함
 		}catch(Exception e) {
 			e.printStackTrace();
+			System.out.println("here??");
 		}
 		
 		//image 테이블에 저장
 		Image image = imageUploadDto.toEntity(imageFileName,principalDetails.getUser());// imageFileName : 5cf513d-ct34-343b-e5235d_1.jpg이렇게만 넣을 건데
-																						// 이러면 앞의 경로는 모르지않느냐? ㄴㄴ yml에 적혀있으니 문제될거없음
+		System.out.println("here???");													// 이러면 앞의 경로는 모르지않느냐? ㄴㄴ yml에 적혀있으니 문제될거없음
 		Image imageEntity = imageRepository.save(image);
-		
+		System.out.println("here????");
 		System.out.println(imageEntity.toString());
 				
 	}

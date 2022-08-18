@@ -187,7 +187,7 @@ function addComment(imageId) {
 		type:"post",
 		url:"/api/comment",
 		data: JSON.stringify(data),
-		contentType:"application.json; charset=utf-8",
+		contentType:"application/json; charset=utf-8",
 		dataType:"json" //응답받을 데이터 (res) 
 	}).done(res=>{
 		console.log("성공",res);

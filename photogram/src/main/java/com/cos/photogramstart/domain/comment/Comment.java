@@ -33,7 +33,7 @@ public class Comment {
 	@Column(length = 100, nullable = false) // 제약조건
 	private String content;
 	
-	@JoinColumn(name="userId") // DB에 만들어질 컬럼명
+	@JoinColumn(name="userId") // DB에 만들어질 컬럼명 , 이렇게 해놓으면 user객체의 PK키인 Id가 userId라는 컬럼명으로 DB에 저장되는 듯
 	@ManyToOne(fetch = FetchType.EAGER) // ManyToOne은 기본전략 EAGER
 	private User user; // 한명의 유저는 댓글을 여러개
 	

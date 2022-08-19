@@ -34,9 +34,19 @@ spring:
   security:
     user:
       name: test
-      password: 1234   
-
+      password: 1234
+      
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: 544777197398877 
+            client-secret: c858e43288efaa1e0c1b8a03e393b730
+            scope:
+            - public_profile
+            - email
+             
 file:
-#      path: C:/Users/user/git/upload/ #윈도우 
-   path: /Users/user/git/upload/ #맥 
+      path: C:/Users/user/git/upload/ #윈도우 
+#   path: /Users/user/git/upload/ #맥 
    

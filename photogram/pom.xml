@@ -19,6 +19,14 @@
 	</properties>
 	<dependencies>
 	
+	<!--/spring-boot-starter-aop -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-aop</artifactId>
+		    <version>2.4.5</version>
+		</dependency>
+			
+	
 		<!--starter-validation -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>

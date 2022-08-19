@@ -226,11 +226,12 @@ function addComment(imageId) {
 	commentList.prepend(content);
 	
 	}).fail(error=>{
-		console.log("오류",error)
+		alert(error.responseJSON.data.content);
+		console.log("오류",error.responseJSON.data.content);
 	});
 	
 	
-	commentInput.val("");
+	commentInput.val(""); // 인풋 필드를 깨끗하게 비워준다.
 }
 
 // (5) 댓글 삭제

@@ -36,15 +36,16 @@ spring:
       name: test
       password: 1234
       
+
     oauth2:
       client:
         registration:
           facebook:
-            client-id: 544777197398877 
-            client-secret: c858e43288efaa1e0c1b8a03e393b730
+            client-id: 1108204229771057
+            client-secret: d6328cacd5d6caabaa42569fcde161cc
             scope:
             - public_profile
-            - email
+            - email       
              
 file:
       path: C:/Users/user/git/upload/ #윈도우 

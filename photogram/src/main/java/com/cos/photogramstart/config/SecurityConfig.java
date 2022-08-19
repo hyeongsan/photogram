@@ -7,9 +7,16 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.cos.photogramstart.config.oauth.OAuth2DetailsService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @EnableWebSecurity // 3.현재 이 파일로 시큐리티를 활성화
 @Configuration // 2.Ioc에 띄워줘야함 !!
 public class SecurityConfig extends WebSecurityConfigurerAdapter{ // 1.WebSecurityConfigurerAdapter로 상속해줘야함
+	
+	private final OAuth2DetailsService oAuth2DetailsService;
 
 	@Bean
 	public BCryptPasswordEncoder encode() {
@@ -32,6 +39,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{ // 1.WebSecuri
 		.formLogin() //antMatchers에 걸리면 우리는 formLogin()을 하겠다. formLogin()이란 form태그, input태그가 있는 페이지를 말함 
 		.loginPage("/auth/signin") //그 formLogin() 페이지가 /auth/signin이라는 뜻이다. -GET방식
 		.loginProcessingUrl("/auth/signin") // POST방식 - 스프링시큐리티가 로그인 프로세스 진행
-		.defaultSuccessUrl("/"); //로그인이 정상적으로 됬으면 어디로 가게 할 것인지 설정
+		.defaultSuccessUrl("/") //로그인이 정상적으로 됬으면 어디로 가게 할 것인지 설정
+		.and()
+		.oauth2Login() // formLogin()도 하는데, oauth2로그인도 할꺼야!!
+		.userInfoEndpoint() // oauth2로그인을 하면 최종응답을 code가 아니라 회원정보로 바로받겠다 (email, public_profile)
+		.userService(oAuth2DetailsService); 
 	}
 }

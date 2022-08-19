@@ -197,10 +197,10 @@ function addComment(imageId) {
 	console.log(data); // javascript
 	console.log(JSON.stringify(data)); // json형식
 
-	if (data.content === "") {
-		alert("댓글을 작성해주세요!");
-		return;
-	}
+//	if (data.content === "") {
+//		alert("댓글을 작성해주세요!");
+//		return;
+//	}
 	
 	//ajax통신
 	$.ajax({

@@ -34,18 +34,6 @@ public class CommentApiController {
 	@PostMapping("/api/comment")
 	public ResponseEntity<?> commentSave(@Valid @RequestBody CommentDto commentDto,BindingResult bindingResult,@AuthenticationPrincipal PrincipalDetails principalDetails){ // 그냥 CommentDto로 하면 x-www-~ key/value로만 받기에, json으로 받으려면 @RequestBody필요함 
 		
-		if(bindingResult.hasErrors()) { // bindingResult에 에러가 있다는건
-					
-			Map<String,String> errorMap = new HashMap<>();
-			
-			for(FieldError error : bindingResult.getFieldErrors()) { //getFieldErrors()는 list를 리턴				
-				errorMap.put(error.getField(), error.getDefaultMessage());
-				System.out.println("here"+error.getDefaultMessage());
-			}			
-			//return "오류남";
-			throw new CustomValidationApiException("유효성검사실패함",errorMap);
-		}
-		
 		Comment comment = commentService.댓글쓰기(commentDto.getContent(), commentDto.getImageId(),principalDetails.getUser().getId()); // content, imageId , userId를 날리면된다
 		return new ResponseEntity<>(new CMRespDto<>(1,"댓글쓰기성공",comment),HttpStatus.CREATED);
 	}
